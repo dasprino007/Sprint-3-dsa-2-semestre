@@ -1,0 +1,12 @@
+cmake_minimum_required(VERSION 4.1)
+
+project(
+sprint-3
+VERSION 0.1
+LANGUAGES C)
+
+set(CMAKE_C_COMPILER_VERSION 11)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+file(GLOB_RECURSE SOURCE_FILES CONFIGURE_DEPENDS "src/*.c")
+add_executable(${PROJECT_NAME} ${SOURCE_FILES})
