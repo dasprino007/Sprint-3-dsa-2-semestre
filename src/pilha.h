@@ -3,7 +3,6 @@
 #include "lista_encadeada.h"
 
 typedef struct Pilha_s {
-  paciente_t topo;
   Node_t* lista;
 } Pilha_t;
 

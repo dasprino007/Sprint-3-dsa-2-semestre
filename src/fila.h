@@ -3,8 +3,7 @@
 #include "lista_encadeada.h"
 
 typedef struct Fila_s {
-  paciente_t topo;
-  Node_t* lista;
+  Node_t* topo;
 } Fila_t;
 
 Fila_t new_fila();
