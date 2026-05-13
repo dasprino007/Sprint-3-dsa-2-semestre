@@ -1,8 +1,5 @@
 #include "lista_encadeada.h"
 
-#include <stdlib.h>
-#include <string.h>
-
 bool paciente_equals(paciente_t value_1, paciente_t value_2)
 {
   return (bool)(strcmp(value_1.nome, value_2.nome) == 0
