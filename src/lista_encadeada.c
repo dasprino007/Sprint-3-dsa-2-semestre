@@ -1,26 +1,21 @@
 #include "lista_encadeada.h"
 
-bool paciente_equals(paciente_t value_1, paciente_t value_2)
-{
-  return (bool)(strcmp(value_1.nome, value_2.nome) == 0
-                && value_1.idade == value_2.idade);
-};
-
 Node_t* new_node(paciente_t data)
 {
   Node_t* node = malloc(sizeof(Node_t));
-  node->data = data;
-  node->next = NULL;
+  *node = (Node_t) {
+      .data = data,
+      .next = NULL,
+  };
   return node;
 };
 
-Node_t* push_node(Node_t* self, paciente_t data)
+void push_node(Node_t* self, paciente_t data)
 {
   while (self->next != NULL) {
     self = self->next;
   }
   self->next = new_node(data);
-  return self;
 };
 
 Node_t* push_in_first_node(Node_t* self, paciente_t data)
@@ -60,8 +55,9 @@ Node_t* pop_node(Node_t* self, paciente_t data)
 
 void free_list(Node_t* self)
 {
+  Node_t* aux = NULL;
   while (self != NULL) {
-    Node_t* aux = self->next;
+    aux = self->next;
     free(self);
 
     self = aux;

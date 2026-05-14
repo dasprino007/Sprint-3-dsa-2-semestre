@@ -1,18 +1,27 @@
 #include <stdio.h>
 
-#include "lista_encadeada.h"
+#include "paciente.h"
+#include "pilha.h"
 
-int main()
+void test_pilha()
 {
   paciente_t paciente_1 = {.nome = "joão", .idade = 10};
   paciente_t paciente_2 = {.nome = "Diego", .idade = 20};
   paciente_t paciente_3 = {.nome = "Diana", .idade = 15};
 
-  Node_t* lista = new_node(paciente_1);
-  push_node(lista, paciente_2);
-  push_node(lista, paciente_3);
+  Pilha_t pilha = new_pilha();
 
-  lista = pop_node(lista, paciente_3);
-  free_list(lista);
-  return 0;
+  push_pilha(&pilha, paciente_1);
+  push_pilha(&pilha, paciente_2);
+  push_pilha(&pilha, paciente_3);
+
+  paciente_t peek = peek_pilha(&pilha);
+  printf("pilha : %s\n", peek.nome);
+  pop_pilha(&pilha);
+
+  peek = peek_pilha(&pilha);
+
+  free_pilha(&pilha);
 }
+
+int main() {}
