@@ -1,9 +1,9 @@
-
 # Sprint — Estruturas de Dados Aplicadas à Saúde Digital
 
 Projeto desenvolvido para a disciplina de Estruturas de Dados.
 
 ## Objetivo
+
 Simular o gerenciamento de atendimentos remotos da plataforma Blua utilizando:
 
 - Fila FIFO para pacientes normais
@@ -18,14 +18,18 @@ Todas as estruturas foram implementadas utilizando listas encadeadas, sem biblio
 ## Estruturas Utilizadas
 
 ### Fila
+
 Operações implementadas:
+
 - enqueue → `push_fila`
 - dequeue → `pop_fila`
 - peek → `peek_fila`
 - is_empty → `is_empty_fila`
 
 ### Pilha
+
 Operações implementadas:
+
 - push → `push_pilha`
 - pop → `pop_pilha`
 - peek → `peek_pilha`
@@ -46,16 +50,16 @@ Operações implementadas:
 
 ## Como executar
 
-### Linux / Mac
-```bash
-gcc src/*.c -o blua
-./blua
-```
+## requsitos:
 
-### Windows (MinGW)
+- CMake >= 4.1
+- Clang ou GCC
+
+## executando o codigo
 ```bash
-gcc src/*.c -o blua.exe
-blua.exe
+cmake -S . -B build/ # Construir a pasta build
+cmake --build build  # Compilar o codigo
+./build/sprint-3     # rodar o codigo
 ```
 
 ---
@@ -63,12 +67,15 @@ blua.exe
 ## Cenários Demonstrados
 
 ### Cenário 1 — FIFO
+
 Pacientes normais são atendidos na ordem de chegada.
 
 ### Cenário 2 — Emergência
+
 Pacientes críticos possuem prioridade sobre os demais.
 
 ### Cenário 3 — Histórico e Desfazer
+
 Consultas finalizadas são armazenadas em pilha e ações administrativas podem ser desfeitas.
 
 ---
