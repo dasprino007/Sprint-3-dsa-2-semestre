@@ -4,49 +4,19 @@
 #include "paciente.h"
 #include "pilha.h"
 
-void test_pilha()
-{
-  paciente_t paciente_1 = {.nome = "joão", .idade = 10};
-  paciente_t paciente_2 = {.nome = "Diego", .idade = 20};
-  paciente_t paciente_3 = {.nome = "Diana", .idade = 15};
+typedef struct Sistema_s {
+  Fila_t fila_normal;
+  Fila_t fila_emergencial;
+  Pilha_t historico;
+  Pilha_t acoes_adminsitrativas;
+} Sistema_t;
 
-  Pilha_t pilha = new_pilha();
+Sistema_t novo_sistema();
+void adicionar_paciente(Sistema_t* sistema, paciente_t paciente);
+void remover_paciente(Sistema_t* sistema, paciente_t paciente);
+void desfazer_sistema(Sistema_t* sistema, paciente_t paciente);
+void atender_paciente(Sistema_t* sistema,
+                      paciente_t paciente,
+                      const char* medico_nome);
 
-  push_pilha(&pilha, paciente_1);
-  push_pilha(&pilha, paciente_2);
-  push_pilha(&pilha, paciente_3);
-
-  paciente_t peek = peek_pilha(&pilha);
-  printf("pilha : %s\n", peek.nome);
-  pop_pilha(&pilha);
-
-  peek = peek_pilha(&pilha);
-
-  free_pilha(&pilha);
-}
-
-void test_fila()
-{
-  paciente_t paciente_1 = {.nome = "joão", .idade = 10};
-  paciente_t paciente_2 = {.nome = "Diego", .idade = 20};
-  paciente_t paciente_3 = {.nome = "Diana", .idade = 15};
-
-  Fila_t fila = new_fila();
-
-  push_fila(&fila, paciente_1);
-  push_fila(&fila, paciente_2);
-  push_fila(&fila, paciente_3);
-
-  paciente_t peek = peek_fila(&fila);
-  printf("fila : %s\n", peek.nome);
-  pop_fila(&fila);
-
-  peek = peek_fila(&fila);
-
-  free_fila(&fila);
-}
-
-int main()
-{
-  test_fila();
-}
+int main() {}

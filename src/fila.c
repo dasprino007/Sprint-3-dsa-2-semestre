@@ -7,8 +7,11 @@ Fila_t new_fila()
 
 void free_fila(Fila_t* self)
 {
+  if (is_empty_fila(self)) {
+    return;
+  }
+
   free_list(self->head);
-  self->tail = NULL;
   self->size = 0;
 };
 
@@ -39,8 +42,7 @@ void pop_fila(Fila_t* self)
     return;
   }
 
-  Node_t* aux = self->head;
-  self->head = self->head->next;
+  Node_t* aux = self->head->next;
   free(self->head);
   self->head = aux;
 

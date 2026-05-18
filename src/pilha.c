@@ -1,7 +1,5 @@
 #include "pilha.h"
 
-#include "lista_encadeada.h"
-
 Pilha_t new_pilha()
 {
   return (Pilha_t) {.topo = NULL, .size = 0};
