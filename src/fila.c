@@ -12,6 +12,7 @@ void free_fila(Fila_t* self)
   }
 
   free_list(self->head);
+  self->tail = NULL;
   self->size = 0;
 };
 
@@ -56,5 +57,5 @@ paciente_t peek_fila(Fila_t* self)
 
 bool is_empty_fila(Fila_t* self)
 {
-  return (bool)(self->head == NULL && self->tail == NULL);
+  return (bool)(self->head == NULL && self->tail == NULL || self->size == 0);
 };
