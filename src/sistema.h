@@ -22,4 +22,5 @@ void mostrar_filas(Sistema_t* sistema);
 void desfazer_ultima_acao(Sistema_t* sistema);
 void executar_cenarios(Sistema_t* sistema);
 void free_sistema(Sistema_t* self);
+void limpar_buffer();
 #endif  // SISTEMA_H_

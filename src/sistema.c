@@ -175,3 +175,9 @@ void free_sistema(Sistema_t* self)
   free_fila(&self->fila_normal);
   free_fila(&self->fila_emergencial);
 }
+
+void limpar_buffer()
+{
+  while (getchar() != '\n')
+    ;
+}
