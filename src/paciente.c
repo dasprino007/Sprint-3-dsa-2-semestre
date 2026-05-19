@@ -1,9 +1,14 @@
 #include "paciente.h"
 
+#include <stdlib.h>
+#include <string.h>
+
 paciente_t new_paciente(char* nome, int idade, bool is_emergency)
 {
+  char* _nome = (char*)malloc(sizeof(nome));
+  memcpy(_nome, nome, sizeof(&nome));
   return (paciente_t) {
-      .nome = nome, .idade = idade, .is_emergency = is_emergency};
+      .nome = _nome, .idade = idade, .is_emergency = is_emergency};
 };
 
 bool paciente_equals(paciente_t value_1, paciente_t value_2)

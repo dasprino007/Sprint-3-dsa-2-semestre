@@ -1,3 +1,5 @@
+#include <string.h>
+
 #include "sistema.h"
 
 int main()
@@ -5,11 +7,12 @@ int main()
   Sistema_t sistema = novo_sistema();
 
   int opcao;
-  char nome[100];
-  int idade;
-  int emergencia;
 
   do {
+    char nome[100];
+    int idade;
+    int emergencia;
+
     printf("\n=====================================\n");
     printf("  BLUA - SISTEMA DE TELECONSULTAS\n");
     printf("=====================================\n");
@@ -39,7 +42,8 @@ int main()
 
         limpar_buffer();
 
-        adicionar_paciente(&sistema, new_paciente(nome, idade, emergencia));
+        adicionar_paciente(&sistema,
+                           new_paciente(nome, idade, (bool)emergencia));
 
         break;
 

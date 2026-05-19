@@ -27,7 +27,7 @@ void push_fila(Fila_t* self, paciente_t data)
   if (is_empty_fila(self)) {
     push_empty_fila(self, data);
   } else {
-    push_node(self->tail, data);
+    push_node(self->head, data);
     self->tail = self->tail->next;
   }
   self->size++;
